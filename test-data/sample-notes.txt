@@ -1,0 +1,12 @@
+## Transport Layer: TCP vs UDP
+
+- The transport layer provides end-to-end communication between processes on different hosts.
+- TCP (Transmission Control Protocol) is connection-oriented. A connection is set up with a three-way handshake: SYN, SYN-ACK, ACK.
+- TCP guarantees reliable, in-order delivery. Lost segments are detected using acknowledgements and are retransmitted.
+- TCP uses flow control (a sliding window) so a fast sender does not overwhelm a slow receiver.
+- TCP uses congestion control to reduce its sending rate when the network is congested.
+- UDP (User Datagram Protocol) is connectionless. There is no handshake before sending data.
+- UDP does not guarantee delivery or ordering, and it does not retransmit lost datagrams.
+- UDP has a smaller header (8 bytes) than TCP (20 bytes minimum), so it has lower overhead.
+- Applications that need speed more than reliability, such as live video streaming, online gaming and DNS lookups, commonly use UDP.
+- Applications that need every byte delivered correctly, such as web browsing, email and file transfer, use TCP.

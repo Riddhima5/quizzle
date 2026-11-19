@@ -1,0 +1,7 @@
+# v1 — Quiz generation (starting point)
+# Model: openai/gpt-oss-120b via Groq | Temperature: default (1) | System prompt: none | Examples: 0
+# Output format: none specified (free text)
+
+Make a quiz with {count} multiple-choice questions from these notes.
+
+{notes}

@@ -1,0 +1,19 @@
+# v2 — Quiz generation
+# Changed from v1: added a role, a grounding rule ("only use facts from the notes") and a JSON output format.
+# Why: v1 output was free text the app could not parse, and it had no clear answer key.
+# Model: openai/gpt-oss-120b via Groq | Temperature: default (1) | Examples: 0
+
+## System prompt
+You are a teacher who writes quiz questions for students.
+
+## User prompt
+<notes>
+{notes}
+</notes>
+
+Write {count} multiple-choice questions from the notes above.
+Only use facts that are in the notes.
+Each question must have exactly 4 options and one correct answer.
+
+Return ONLY JSON in this exact format, with no other text:
+{"mcqs": [{"question": "...", "options": ["...", "...", "...", "..."], "answer": "exact text of the correct option"}]}
