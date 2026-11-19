@@ -1,0 +1,254 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Quizzle palette — baby pink + sage ("pretty, not kiddish").
+ * Every colour used in components comes from these tokens; no hex values in components.
+ *
+ * Contrast notes (WCAG AA, 4.5:1 for body text):
+ *  - white on --sage-500 is ~2.6:1 → primary buttons use --sage-700 fill (~4.8:1) and --sage-800 on hover;
+ *    --sage-500 is kept for non-text fills (verified states, progress line, icons).
+ *  - --muted (#8A8285) on --background is ~3.5:1 → --muted-text (#6F6669, ~5.2:1) is used for body copy.
+ *  - --pink-600 on white is ~3.2:1 → --pink-700 (#8E4457) is used for text on pink tints.
+ */
+:root {
+  --background: #fbf7f5;
+  --surface: #ffffff;
+  --pink-50: #fdf2f4;
+  --pink-200: #f6d5dc;
+  --pink-400: #e8a9b6;
+  --pink-600: #c9788a;
+  --pink-700: #8e4457;
+  --sage-50: #f2f5f0;
+  --sage-200: #cfdcc8;
+  --sage-500: #8fa98a;
+  --sage-700: #5f7a5b;
+  --sage-800: #4e664b;
+  --text: #2f2a2c;
+  --muted: #8a8285;
+  --muted-text: #6f6669;
+  --border: #ede4e6;
+
+  /* Semantic states (kept inside the palette) */
+  --warning: #d4b483;
+  --warning-bg: #f8f0e2;
+  --warning-text: #7d5f27;
+  --danger: #c46a72;
+  --danger-bg: #f8e6e8;
+  --danger-text: #9a434c;
+  --success-bg: var(--sage-50);
+  --success-text: var(--sage-800);
+
+  --on-primary: #ffffff;
+  --primary: var(--sage-700);
+  --primary-hover: var(--sage-800);
+  --ring: var(--pink-400);
+
+  --shadow-soft: 0 4px 20px rgba(201, 120, 138, 0.08);
+  --shadow-lift: 0 8px 30px rgba(201, 120, 138, 0.12);
+}
+
+/* Dark theme — applied by next-themes (class strategy; follows the OS by default). */
+.dark {
+  color-scheme: dark;
+  --background: #1e1b1c;
+  --surface: #2a2627;
+  --pink-50: #2f2729;
+  --pink-200: #4a3a3e;
+  --pink-400: #d9a3ae;
+  --pink-600: #d9a3ae;
+  --pink-700: #e8bcc5;
+  --sage-50: #252a24;
+  --sage-200: #3a4538;
+  --sage-500: #9db598;
+  --sage-700: #9db598;
+  --sage-800: #b3c8ae;
+  --text: #ede6e8;
+  --muted: #a99fa3;
+  --muted-text: #b4abaf;
+  --border: #3a3436;
+
+  --warning: #c9ab7c;
+  --warning-bg: #352e24;
+  --warning-text: #e3c99c;
+  --danger: #d08b92;
+  --danger-bg: #3a2729;
+  --danger-text: #eab3b8;
+  --success-bg: #263024;
+  --success-text: #bcd3b6;
+
+  --on-primary: #1e1b1c;
+  --primary: var(--sage-500);
+  --primary-hover: var(--sage-800);
+  --ring: var(--pink-400);
+
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-lift: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-pink-50: var(--pink-50);
+  --color-pink-200: var(--pink-200);
+  --color-pink-400: var(--pink-400);
+  --color-pink-600: var(--pink-600);
+  --color-pink-700: var(--pink-700);
+  --color-sage-50: var(--sage-50);
+  --color-sage-200: var(--sage-200);
+  --color-sage-500: var(--sage-500);
+  --color-sage-700: var(--sage-700);
+  --color-sage-800: var(--sage-800);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-muted-text: var(--muted-text);
+  --color-border: var(--border);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-text: var(--warning-text);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-text: var(--danger-text);
+  --color-success-bg: var(--success-bg);
+  --color-success-text: var(--success-text);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+  h1,
+  h2,
+  h3 {
+    line-height: 1.25;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--pink-200);
+    color: var(--text);
+  }
+}
+
+/* Faint pink → sage wash behind the hero / logo. */
+.hero-wash {
+  background:
+    radial-gradient(
+      60% 80% at 15% 0%,
+      color-mix(in srgb, var(--pink-200) 45%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 70% at 90% 10%,
+      color-mix(in srgb, var(--sage-200) 50%, transparent),
+      transparent 70%
+    );
+}
+
+/* Faint dotted "notebook paper" texture. */
+.paper-dots {
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--pink-400) 22%, transparent) 1px,
+    transparent 1.2px
+  );
+  background-size: 18px 18px;
+}
+
+/* Soft blurred shapes drifting slowly behind the hero. */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.55;
+  animation: drift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(24px, -16px) scale(1.08);
+  }
+}
+
+/* Gentle "breathing" for the generating state — slow, not bouncy. */
+.breathe {
+  animation: breathe 2.4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.12) rotate(-8deg);
+    opacity: 1;
+  }
+}
+
+/* Soft fade-up for content that appears (quiz, results). */
+.fade-up {
+  animation: fade-up 400ms ease-out both;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tiny confetti for a perfect score — palette colours only, falls once. */
+.confetti-piece {
+  position: absolute;
+  top: -8px;
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+  animation: confetti-fall 1.8s ease-in forwards;
+}
+@keyframes confetti-fall {
+  to {
+    transform: translateY(160px) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

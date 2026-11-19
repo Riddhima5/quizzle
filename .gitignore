@@ -1,0 +1,49 @@
+# --- Dependencies ---
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# --- Build output (Next.js + generic) ---
+.next/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# --- Env / secrets: never commit real keys ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# copied from node_modules by scripts/copy-pdf-worker.mjs
+public/pdf.worker.min.mjs
+
+# eval output
+eval/results/*.json
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Local-only documents ---
+Quizzle_Project_Report.docx
