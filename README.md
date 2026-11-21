@@ -4,6 +4,33 @@
 
 Quizzle turns lecture notes (pasted text, a PDF, or photos of handwritten or printed notes) into multiple-choice questions, short-answer questions and flashcards. A second, independent AI pass then re-answers every question from the notes alone and removes any item whose answer it can't reproduce, so you only practise on questions that are actually supported by your material.
 
+**Live prototype:** https://quizzle-self.vercel.app
+
+## Team Byte Belles (PE-B01-41)
+
+Prompt Engineering mini project (SCSE4041), Bennett University · Faculty: Dr. Sonal Kukreja
+
+| Member | Enrollment no. |
+| --- | --- |
+| Riddhima Srivastava (leader) | S24CSEU0137 |
+| Vanshita Yadav | S24CSEU0167 |
+| Sanjana Kumari | S24CSEU0395 |
+| Palak | S24CSEU0201 |
+| Anubhuti Singh | S24CSEU0369 |
+
+## Repository map
+
+| Folder | What's in it |
+| --- | --- |
+| `prompts/` | Prompt code used by the app (`generate.ts`, `verify.ts`, `transcribeImage.ts`, `fewshot.ts`) |
+| `prompts/v1/`, `prompts/v2/`, `prompts/v3/` | The three saved versions of the quiz-generation prompt |
+| `prompts/final/` | The 3 final prompts as plain text (P1 transcribe, P2 generate, P3 verify) |
+| `app/`, `components/`, `lib/` | Application code (Next.js UI, API routes, pipeline) |
+| `test-data/` | Test inputs, the Milestone 2 test-table results and the prompt iteration results |
+| `docs/` | Diagrams and the Milestone 2 PDF |
+| `scripts/` | Prompt experiment scripts (`prompt-iterations.ts`, `export-prompts.ts`) |
+| `CHANGELOG.md` | Dated list of changes since Milestone 1 |
+
 ## Features
 
 - **Three ways in:** paste notes, upload a PDF (scanned PDFs can be read as photos), or upload/take photos of notes. Photos are converted, resized and transcribed, and unreadable words are marked `[illegible]` for you to fix.

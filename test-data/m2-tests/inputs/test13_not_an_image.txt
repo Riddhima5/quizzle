@@ -1,0 +1,2 @@
+Quizzle test file - this is not an image.
+(Uploaded to /api/extract-images as not_an_image.jpg with type image/jpeg.)

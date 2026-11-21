@@ -1,0 +1,9 @@
+## DBMS: Normalization
+- Normalization organises tables to reduce redundancy and avoid update, insert and delete anomalies.
+- A functional dependency X -> Y means the value of X determines the value of Y.
+- First Normal Form (1NF): every column holds atomic (single) values and there are no repeating groups.
+- Second Normal Form (2NF): the table is in 1NF and no non-key column depends on only part of a composite primary key (no partial dependency).
+- Third Normal Form (3NF): the table is in 2NF and no non-key column depends on another non-key column (no transitive dependency).
+- Boyce-Codd Normal Form (BCNF): for every functional dependency X -> Y, X must be a superkey. BCNF is stricter than 3NF.
+- Denormalization deliberately adds redundancy back to make read-heavy queries faster.
+- Example: in Orders(order_id, customer_id, customer_city), customer_city depends on customer_id, not on order_id, so the table violates 3NF. Fix: move customer_city into a Customers table.

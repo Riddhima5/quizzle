@@ -1,0 +1,1 @@
+TCP is connection-oriented and uses a three-way handshake (SYN, SYN-ACK, ACK). UDP is connectionless and has no handshake. TCP retransmits lost segments; UDP does not retransmit lost datagrams at all.

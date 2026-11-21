@@ -88,7 +88,8 @@ writeFileSync(
 # Changed from v2: forced tool call with a JSON schema (+ zod check and one repair retry), XML tags,
 # 1 good example per type + 1 bad example, Bloom's difficulty guide, distractor rules,
 # verbatim source_quote first in every item, temperature 0.7.
-# Why: v2's JSON still broke / needed cleanup, and some questions used facts not in the notes.
+# Why: v2 relied on the model choosing to return clean JSON (nothing enforced or checked it), its
+# questions had no link back to the notes, and difficulty was not controlled.
 
 ` + files["P2_generate.txt"]!,
 );
